@@ -1,11 +1,11 @@
-From 16649d85b877095ae4cb6be9a8577ec1713e8560 Mon Sep 17 00:00:00 2001
+From 4996defac451784e372a283904a8d7b2cc178919 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
-Date: Wed, 16 Nov 2022 13:54:26 -0600
-Subject: [PATCH 00/13] Combination of all my branches
+Date: Wed, 16 Nov 2022 16:19:05 -0600
+Subject: [PATCH 00/14] Combination of all my branches
 
 This is a convenience to see the effect of merging all proposed changes.
 
-David C Black (13):
+David C Black (14):
   Add get_channel method to sc_port_base and sc_port_b to allow
     netlisting
   Add "do { ... } while(false)" to macros to require semi-colon after
@@ -22,6 +22,7 @@ David C Black (13):
   Fix missing semicolon
   Fix unsafe sprintf and vsprintf calls.
   Add SystemC time literals
+  Add define SC_HAS_GET_BASE_INTERFACE
 
 -- 
 2.38.1
@@ -29,7 +30,7 @@ David C Black (13):
 From c996fbf43f9cc7a06e25ad32798dc2cf082eae9c Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Thu, 27 Oct 2022 16:41:49 -0500
-Subject: [PATCH 01/13] Add get_channel method to sc_port_base and sc_port_b to
+Subject: [PATCH 01/14] Add get_channel method to sc_port_base and sc_port_b to
  allow netlisting
 
 ---
@@ -64,7 +65,7 @@ index b18894ec..9da73c1f 100644
 From 406ea9c290d3b0c6298a06ba0ba9a88032f553f9 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 04:08:42 -0500
-Subject: [PATCH 02/13] Add "do { ... } while(false)" to macros to require
+Subject: [PATCH 02/14] Add "do { ... } while(false)" to macros to require
  semi-colon after process related macros.
 
 ---
@@ -148,7 +149,7 @@ index 13dcc7b6..43d53cc1 100644
 From 82b68674dfdd7e2f15d2bc05b2ded584f71b9500 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 04:11:19 -0500
-Subject: [PATCH 03/13] Change SC_CTOR to specify explicit and pass
+Subject: [PATCH 03/14] Change SC_CTOR to specify explicit and pass
  sc_module_name by const reference to address modern compiler syntax warnings
 
 ---
@@ -174,7 +175,7 @@ index 13dcc7b6..4134ce58 100644
 From 4eecf97de77814c5e03b0c6a92a53f4b98dcc8c3 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 05:25:12 -0500
-Subject: [PATCH 04/13] Support netlist investigations of analysis ports
+Subject: [PATCH 04/14] Support netlist investigations of analysis ports
 
 ---
  src/tlm_core/tlm_1/tlm_analysis/tlm_analysis_if.h   |  6 ++++--
@@ -243,7 +244,7 @@ index 99909253..c7577df5 100644
 From 8ca1f124bf9db087770228d7d34d7996f6699740 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 06:30:53 -0500
-Subject: [PATCH 05/13] Rename to get_base_interface for consistency
+Subject: [PATCH 05/14] Rename to get_base_interface for consistency
 
 ---
  src/sysc/communication/sc_port.h | 4 ++--
@@ -277,7 +278,7 @@ index 9da73c1f..a9265a33 100644
 From c243de1da14ef3d981986bfd80a3b2407e7a4864 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 06:46:52 -0500
-Subject: [PATCH 06/13] Define SC_HAS_TLM_ANALYSIS_BASE to enable detection of
+Subject: [PATCH 06/14] Define SC_HAS_TLM_ANALYSIS_BASE to enable detection of
  new feature
 
 ---
@@ -342,7 +343,7 @@ index c7577df5..048bc91c 100644
 From e9607d1faf26a8b9e4d6292a13a53b5d3dc1be74 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 07:56:58 -0500
-Subject: [PATCH 07/13] Add override and remove virtual default
+Subject: [PATCH 07/14] Add override and remove virtual default
 
 ---
  src/tlm_core/tlm_1/tlm_analysis/tlm_analysis_port.h | 6 +++---
@@ -379,7 +380,7 @@ index 048bc91c..b8c8aa63 100644
 From afdb82528acdce6963870c44a8201ed8714c27a8 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 08:01:33 -0500
-Subject: [PATCH 08/13] Syntax error
+Subject: [PATCH 08/14] Syntax error
 
 ---
  src/tlm_core/tlm_1/tlm_analysis/tlm_analysis_port.h | 4 ++--
@@ -413,7 +414,7 @@ index b8c8aa63..9a98aad6 100644
 From 833337c88709681dea9d290d63665237abcffbaa Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Sat, 29 Oct 2022 09:32:55 -0500
-Subject: [PATCH 09/13] Add kind for tlm_analysis_port
+Subject: [PATCH 09/14] Add kind for tlm_analysis_port
 
 ---
  src/tlm_core/tlm_1/tlm_analysis/tlm_analysis_port.h | 2 ++
@@ -438,7 +439,7 @@ index 9a98aad6..dbac116b 100644
 From cd142b645fcca0d22a76a7d2f4856e4d590f3345 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Thu, 3 Nov 2022 06:28:53 -0500
-Subject: [PATCH 10/13] Improve efficiency of SC_REPORT_INFO_VERB
+Subject: [PATCH 10/14] Improve efficiency of SC_REPORT_INFO_VERB
 
 ---
  src/sysc/utils/sc_report.h | 6 ++++--
@@ -469,7 +470,7 @@ index a7c5da72..3120e544 100644
 From 7c98cb51e64fe53a0e5d0f63263d0517d548afab Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Mon, 14 Nov 2022 20:35:07 -0600
-Subject: [PATCH 11/13] Fix missing semicolon
+Subject: [PATCH 11/14] Fix missing semicolon
 
 ---
  src/sysc/utils/sc_report.h | 2 +-
@@ -494,7 +495,7 @@ index 3120e544..6835630d 100644
 From ef71c19faf00891944e0235cc09b1a8cb969de6d Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Tue, 15 Nov 2022 05:27:31 -0600
-Subject: [PATCH 12/13] Fix unsafe sprintf and vsprintf calls.
+Subject: [PATCH 12/14] Fix unsafe sprintf and vsprintf calls.
 
 Replaced:
   sprintf  becomes snprintf
@@ -859,7 +860,7 @@ index 21476e8b..f0d897cb 100644
 From 16649d85b877095ae4cb6be9a8577ec1713e8560 Mon Sep 17 00:00:00 2001
 From: David C Black <david.black@doulos.com>
 Date: Tue, 15 Nov 2022 10:07:50 -0600
-Subject: [PATCH 13/13] Add SystemC time literals
+Subject: [PATCH 13/14] Add SystemC time literals
 
 ---
  src/CMakeLists.txt                   |  1 +
@@ -995,6 +996,32 @@ index 00000000..94e53177
 +#endif
 +
 +#endif/*SC_TIME_LITERALS_HPP*/
+-- 
+2.38.1
+
+From 4996defac451784e372a283904a8d7b2cc178919 Mon Sep 17 00:00:00 2001
+From: David C Black <david.black@doulos.com>
+Date: Wed, 16 Nov 2022 16:17:43 -0600
+Subject: [PATCH 14/14] Add define SC_HAS_GET_BASE_INTERFACE
+
+---
+ src/sysc/communication/sc_port.h | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/sysc/communication/sc_port.h b/src/sysc/communication/sc_port.h
+index a9265a33..54a8d5ee 100644
+--- a/src/sysc/communication/sc_port.h
++++ b/src/sysc/communication/sc_port.h
+@@ -96,6 +96,9 @@ public:
+     // get the first interface without checking for nil
+     virtual       sc_interface* get_interface()       = 0;
+     virtual const sc_interface* get_interface() const = 0;
++	#ifndef SC_HAS_GET_BASE_INTERFACE
++	#define SC_HAS_GET_BASE_INTERFACE
++	#endif
+     virtual sc_interface* get_base_interface( int index_=0 ) = 0;
+ 
+     virtual const char* kind() const
 -- 
 2.38.1
 
